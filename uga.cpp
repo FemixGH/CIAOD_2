@@ -13,22 +13,17 @@ int GetRandomNumber()
 }
 
 void PerformTask() {
-    int numBytes = (std::pow(10, 7) + 7) / 8;
+    int numBytes = (pow(10, 7) + 7) / 8;
     vector<int> numbers(numBytes);
-    ofstream file(R"(C:\Users\Theodor\CLionProjects\CIAOD_2\numbers.txt)");
-
-
+    ofstream file(R"(C:\Users\fedor\CLionProjects\CIAOD_2\numbers.txt)");
     for (int i = 0; i < 1000000; i++) {
         file << GetRandomNumber() << std::endl;
     }
     file.close();
 
-    ifstream inputFileStream("numbers.txt");
-    ofstream outputFile(R"(C:\Users\Theodor\CLionProjects\CIAOD_2\output.txt)");
+    ifstream inputFileStream("C:\\Users\\fedor\\CLionProjects\\CIAOD_2\\numbers.txt)\"");
+    fstream outputFile("(C:\\Users\\fedor\\CLionProjects\\CIAOD_2\\output.txt)");
     string line;
-
-
-
     int bitId, byteIndex, setBit;
     while (getline(inputFileStream, line)) {
         bitId = stoi(line);
@@ -46,7 +41,7 @@ void PerformTask() {
         {
             bool isBitSet = (byte & (1 << bitId));
             if (isBitSet == 1)
-                outputFile << (byteIndex * 8 + bitId) << std::endl;
+                outputFile << (byteIndex * 8 + bitId) << endl;
         }
     }
     outputFile.close();

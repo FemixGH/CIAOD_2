@@ -20,25 +20,26 @@ int set_4(unsigned int a)
 }
 int set_5(unsigned int a, unsigned int mask, unsigned int n)
 {
-    mask = mask>>n;
-    return a = a ^ mask;
+    mask = mask<<n;
+    return a = a | mask;
 }
 int main() {
+    cout<<"For choosing number press 1, 2, 3, 4, 5"<<endl;
     unsigned short int x, n;
     setlocale(LC_ALL, "Russian");
 
     unsigned int a = 0x12345;
     unsigned int mask1 = 0b0010001111100101;
     unsigned int mask2 = 0b1100001111111111;
-    unsigned int mask3 = 0b1000000000000000;
+    unsigned int mask3 = 0b0000000000000001;
     int k;
     cin >> k;
     switch (k) {
         case 1:
-            cout << "Исходное число: " << a << endl;
-            cout << "Исходное число в 2 сс: " << bitset<16>(a) << endl;
-            cout << "Результат в 2 сс: " << bitset<16>(a | mask1) << endl;
-            cout << "Результат: " << set_1(a, mask1);
+            cout<<"Number: "<< a << endl;
+            cout<<"Your number in 2 notation: "<< bitset<16>(a) << endl;
+            cout<<"Answer in 2 notation: "<< bitset<16>(a | mask1) << endl;
+            cout<<"Answer: " << set_1(a, mask1);
             break;
         case 2:
             cout << "Введите ваше число: ";
